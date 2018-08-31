@@ -1,0 +1,56 @@
+{
+  "name": "a6vi",
+  "version": "1.0.0",
+  "description": "pc",
+  "private": true,
+  "scripts": {
+    "watch": "webpack --watch",
+    "start": "webpack-dev-server --mode development --hotOnly --config webpack.dev.js",
+    "dev": "webpack --mode development --config webpack.dev.js",
+    "build": "webpack --mode production --config webpack.prod.js"
+  },
+  "keywords": [],
+  "author": "zl",
+  "license": "ISC",
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "babel-loader": "^7.1.5",
+    "clean-webpack-plugin": "^0.1.19",
+    "crypto-js": "^3.1.9-1",
+    "css-loader": "^0.28.11",
+    "eslint": "^4.19.1",
+    "eslint-loader": "^2.0.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^1.1.11",
+    "html-loader": "^0.5.5",
+    "html-webpack-harddisk-plugin": "^0.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.9.2",
+    "sass-loader": "^6.0.7",
+    "style-loader": "^0.20.3",
+    "vue": "^2.5.16",
+    "vue-awesome-swiper": "^3.1.3",
+    "vue-loader": "^14.2.3",
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "^4.15.1",
+    "webpack-cli": "^2.1.5",
+    "webpack-dev-server": "^3.1.4",
+    "webpack-merge": "^4.1.3"
+  },
+  "dependencies": {
+    "echarts": "^4.1.0",
+    "element-ui": "^2.4.6",
+    "iview": "^3.0.0",
+    "lodash": "^4.17.10",
+    "qs": "^6.5.2",
+    "vue-router": "^3.0.1",
+    "vue-style-loader": "^4.1.0",
+    "vuex": "^3.0.1"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 7,
+      "sourceType": "module"
+    }
+  }
+}

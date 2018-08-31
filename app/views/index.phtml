@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title><?php if(isset($title)&&!empty($title)){ ?><?php echo $title ?><?php } ?></title>
+        <link rel="shortcut icon" type="image/x-icon" href="<?php echo $this->url->get('/img/favicon.ico')?>"/>
+        <?php if(!isset($act)||($act!='noweb'&&$act!='nopower')){ ?>
+            <meta name="<?php echo $this->security->getTokenKey() ?>" content="<?php echo $this->security->getToken() ?>">
+            <link href="/css/pub.css" rel="stylesheet"></head>
+            <?php if(isset($jsfile)&&!empty($jsfile)){ ?>
+                <link href="/css/<?php echo $jsfile ?>.css" rel="stylesheet"></head>
+            <?php }else{ ?>
+                <link href="/css/index.css" rel="stylesheet"></head>
+            <?php } ?>
+        <?php }else{ ?>
+        <?php } ?>
+    </head>
+    <body>
+        <?php if(!isset($act)||($act!='noweb'&&$act!='nopower')){ ?>
+            <div id="app">
+                <?php echo $this->getContent(); ?>
+            </div>
+            <script type="text/javascript" src="/js/pub.js"></script>
+            <?php if(isset($jsfile)&&!empty($jsfile)){ ?>
+                <script type="text/javascript" src="/js/<?php echo $jsfile ?>.js"></script>
+            <?php }else{ ?>
+                <script type="text/javascript" src="/js/index.js"></script>
+            <?php } ?>
+        <?php }else{ ?>
+            <h3>404</h3>
+        <?php } ?>
+    </body>
+</html>
