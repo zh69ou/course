@@ -1,14 +1,14 @@
 <?php
 
 /**
- * 首页
+ * 课程
  */
-class IndexController extends ControllerBase
+class CourseController extends ControllerBase
 {
 
-  public function indexAction()
+  public function listAction()
   {
-  	echo 1;exit;
+  	echo 'list';exit;
   }
 
   public function nopowerAction()

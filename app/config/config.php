@@ -11,8 +11,8 @@ return new \Phalcon\Config([
         'adapter'     => 'Mysql',
         'host'        => 'localhost',
         'username'    => 'root',
-        'password'    => '123456',
-        'dbname'      => 'week',
+        'password'    => '',
+        'dbname'      => 'test',
         'charset'     => 'utf8',
     ],
     'application' => [
@@ -28,22 +28,6 @@ return new \Phalcon\Config([
         // This allows the baseUri to be understand project paths that are not in the root directory
         // of the webpspace.  This will break if the public/index.php entry point is moved or
         // possibly if the web server rewrite rules are changed. This can also be set to a static path.
-        // 'baseUri'        => preg_replace('/public([\/\\\\])index.php$/', '', $_SERVER["PHP_SELF"]),
-        'baseUri'        => preg_replace('/\/index\.php/', '', $_SERVER["PHP_SELF"])
-    ],
-    'error' =>[
-        'success'       => 0,//请求成功
-
-        'noland'        => 1001,//没有登录
-        'landed'        => 1002,//登录超时
-        'unameerror'    => 1003,//账号错误
-        'pswerror'      => 1004,//密码错误
-        'nopower'       => 1005,//没有权限
-        'noaudit'       => 1006,//账号审核
-
-        'dataerror'     => 2001,//数据错误
-        'crpterror'     => 2002//数据加密解密错误
-    ],
-    'loginname' => 'token',
-    'listsize' => 16
+        'baseUri'        => preg_replace('/public([\/\\\\])index.php$/', '', $_SERVER["PHP_SELF"]),
+    ]
 ]);
