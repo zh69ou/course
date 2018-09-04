@@ -2,13 +2,20 @@
 use Phalcon\Mvc\Router\Group as RouterGroup;
 
 $router = $di->getRouter(false);
-// ��ҳ
+
+# 首页
 $router->add('/','Index::index',['GET']);
-// �γ�
+
+# 课程
 $router->add('/course','Course::list',['GET']);
-// û��Ȩ��
+
+# 临时统计
+$router->add('/statistics','Index::statistics',['GET']);
+
+# 没有权限
 $router->add('/nopower','Index::nopower',['GET']);
-// 404
+
+# 404
 $router->notFound(['controller' => 'index','action' => 'er404'] );
 
 $router->handle();

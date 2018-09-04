@@ -1,0 +1,12 @@
+<table>
+	<tr><th>年级</th><th>播放次数（总）</th><th>点击次数（总）</th><th>相差（总）</th><th>转换率（总）</th><th>看完全部五期课程的人数（总）</th><th>看了一期就没看的人数（总）</th><th>重复观看三次以上的人数（总）</th><th>h5观看人数（总）</th><th>pc观看人数（总）</th><th>课程名称</th><th>该课程播放总次数（分课程）</th><th>播放人数最高的时间段（分课程）</th><th>重复观看三次以上的人数（分课程）</th><th>h5观看人数（课程）</th><th>pc观看人数（课程）</th></tr>
+	<?php foreach ($allpaynum as $k => $v) { ?>
+		<tr><td><?php echo $k ?></td><td><?php echo $v['num'] ?></td><td><?php echo $allpointnum[$k]['num'] ?></td><td></td><td></td><td><?php echo $allshownum[$k]['num'] ?></td><td></td><td><?php echo $repeat3shownum[$k]['num'] ?></td><td><?php echo $showh5num[$k]['num'] ?></td><td><?php echo $showpcnum[$k]['num'] ?></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+		<?php foreach ($classshow[$k] as $ke => $va) { ?>
+			<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td><?php echo $va['title'] ?></td><td><?php echo $va['num'] ?></td><td></td><td><?php echo $classshow3[$va['gradeid']][$va['id']]['num'] ?></td><td><?php echo $classh5show[$va['gradeid']][$va['id']]['num'] ?></td><td><?php echo $classpcshow[$va['gradeid']][$va['id']]['num'] ?></td></tr>
+		<?php } ?>
+		<?php foreach ($classshow3user[$k] as $ke => $va) { ?>
+			<tr><td><?php echo $va['name'] ?></td><td><?php echo $va['phone'] ?></td><td><?php echo $va['title'] ?></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+		<?php } ?>
+	<?php } ?>
+</table>
