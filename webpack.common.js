@@ -6,11 +6,7 @@ const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 
 module.exports = {
   entry: {
-    pub: ['vue', 'axios'],
-    index: './assets/js/index.js',
-  	login: './assets/js/login.js',
-  	list: './assets/js/list.js',
-    // adminindex:'./assets/js/adminindex.js'
+    index: './assets/js/index.js'
   },
   devServer: {
     contentBase: './public'
@@ -27,37 +23,19 @@ module.exports = {
     }
   },
   plugins: [
-  	new ExtractTextPlugin({
-  	  filename:  (getPath) => {
-  	    return getPath('css/[name].css');
-  	  },
-  	  allChunks: true
-  	}),
-    // new HtmlWebpackPlugin({
-    //   filename: 'demo/adminindex.html',
-    //   template: './assets/view/adminindex.html',
-    //   // hash: true,
-    //   chunks : ['adminindex']
-    // }),
+    new ExtractTextPlugin({
+      filename:  (getPath) => {
+        return getPath('css/[name].css');
+      },
+      allChunks: true
+    }),
     new HtmlWebpackPlugin({
       filename: 'demo/index.html',
       template: './assets/view/index.html',
       // hash: true,
       chunks : ['index']
     }),
-  	new HtmlWebpackPlugin({
-  		filename: 'demo/login.html',
-  		template: './assets/view/login.html',
-      // hash: true,
-      chunks : ['login']
-  	}),
-  	new HtmlWebpackPlugin({
-  		filename: 'demo/list.html',
-  		template: './assets/view/list.html',
-      // hash: true,
-      chunks : ['list']
-  	}),
-  	new HtmlWebpackHarddiskPlugin()
+    new HtmlWebpackHarddiskPlugin()
   ],
   optimization: {
     splitChunks: {
@@ -71,8 +49,8 @@ module.exports = {
     }
   },
   module: {
-  	rules: [
-  	  {
+    rules: [
+      {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: "style-loader",
@@ -81,17 +59,17 @@ module.exports = {
       },
       {
         test: /\.(html)$/,
-      	use: {
-  		   loader: 'html-loader',
-  		   options: {
-  		     attrs: [':data-src']
-  		   }
-      	}
+        use: {
+         loader: 'html-loader',
+         options: {
+           attrs: [':data-src']
+         }
+        }
       },
-  	  {
-  	  	test: /\.(png|svg|jpg|gif)$/,
-  	  	use: [
-  	  	  {
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
@@ -99,32 +77,32 @@ module.exports = {
             }
           }
         ]
-  	  },
-  	  {
-  	  	test: /\.(woff|woff2|eot|ttf|otf)$/,
-  	  	use: [
-  	  	  'file-loader'
-  	  	]
-  	  },
-  	  {
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: [
+          'file-loader'
+        ]
+      },
+      {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
-          	{
-          		loader: 'css-loader',
-          		options: {
-          			url: false,
+            {
+              loader: 'css-loader',
+              options: {
+                url: false,
                     minimize: true,
                     sourceMap: true
-          		}
-          	},
-          	{
-          		loader: 'sass-loader',
-          		options: {
+              }
+            },
+            {
+              loader: 'sass-loader',
+              options: {
                     sourceMap: true
                 }
-          	}]
+            }]
         })
       },
       {
@@ -138,6 +116,6 @@ module.exports = {
           }
         }
       }
-  	]
+    ]
   }
 };

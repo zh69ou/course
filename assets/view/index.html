@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>index</title>
+</head>
+<body>
+<div id="app">
+	<!-- 菜单 -->
+	<div class="fixed-top">
+		<div class="container">
+			<nav class="navbar navbar-expand-lg navbar-light">
+			  <a class="navbar-brand" href="#"><img class="logo" src="/ico/logo.png" alt=""></a>
+			  <button class="navbar-toggler" type="button" @click="topmenuevent">
+			    <span class="navbar-toggler-icon"></span>
+			  </button>
+			  <div class="collapse navbar-collapse" ref="topmenu">
+			    <ul class="navbar-nav mr-auto firstmenu">
+			      <li class="nav-item active">
+			        <a class="nav-link" href="#">首页</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="#">课程</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="#">题库</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link" href="#">商城</a>
+			      </li>
+			    </ul>
+			    <ul class="navbar-nav justify-content-end">
+					  <li class="nav-item">
+					    <div class="input-group search">
+							  <input type="text" class="form-control" placeholder="输入你要找的内容">
+							  <div class="input-group-append">
+							    <button class="btn btn-outline-secondary" type="button"><img src="/ico/search.svg" alt=""></button>
+							  </div>
+							</div>
+					  </li>
+					  <li class="nav-item note">
+					    <a class="nav-link" href="#">
+					    	<img src="/ico/note.svg" alt="">
+					    	<span>12</span>
+					    </a>
+					  </li>
+					  <li class="nav-item user dropdown">
+					    <a class="nav-link dropdown-toggle" @click="usermenuevent"><img src="/ico/user.jpg" alt="">用户</a>
+					    <div class="dropdown-menu" ref="usermenu">
+			          <a class="dropdown-item" href="#"><img src="/ico/userico.svg" alt="">个人中心</a>
+			          <div class="dropdown-divider"></div>
+			          <a class="dropdown-item" href="#"><img src="/ico/logoutico.svg" alt="">退出</a>
+			        </div>
+					  </li>
+					</ul>
+			  </div>
+			</nav>
+		</div>
+	</div>
+	<!-- banner -->
+	<div class="swiper-container banner">
+	  <div class="swiper-wrapper">
+	    <div class="swiper-slide"><a href="#"><img src="/ico/banner1.jpg" alt=""></a></div>
+	    <div class="swiper-slide"><a href="#"><img src="/ico/banner2.jpg" alt=""></a></div>
+	    <div class="swiper-slide"><a href="#"><img src="/ico/banner1.jpg" alt=""></a></div>
+	  </div>
+	  <div class="swiper-pagination"></div>
+	</div>
+	<!-- 栏目一 趣味课程 -->
+	<div class="container">
+		<div class="jumbotron jumbotron-fluid text-center">
+		  <div class="container">
+		    <p class="title h3"><img src="/ico/vedio.svg" alt="">魔力数学课</p>
+		    <p class="lead">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Magic Of Math</p>
+		  </div>
+		</div>
+		<div class="row bookshow">
+			<div class="col-sm-6">
+			  <img src="/ico/book.jpg" alt="">
+			</div>
+			<div class="col-sm-1"></div>
+		  <div class="col-sm-5 mt-2">
+		    <blockquote class="blockquote">
+				  <p class="mb-0 h4">魔力数学课等你发现更多数学奥秘</p>
+				  <footer class="blockquote-footer mt-1">布兰妮系列：《钻石失窃案》全4集</footer>
+				  <p class="content mt-3">在层层安保下，一颗价值连城的钻石为何被布兰妮偷走？是布兰妮独自作案？还是与内部人员勾结所为？这其中又有什么玄机呢？雷顿侦探和K警长又该如何将布兰妮绳之以法呢？</p>
+				  <p class="desc">本期课程提升数学思维能力：</span><span class="desc ornge">观察与理解、计算与表达、逻辑与推理</p>
+				  <div class="mt-3 activity">
+				  	<span class="ornge">限时特惠价：</span>&nbsp;&nbsp;<span class="price ornge">￥49.90</span> <a class="info text-white" href="#">了解详情</a>
+				  </div>
+				</blockquote>
+		  </div>
+		</div>
+	</div>
+	<!-- 最新课程 -->
+	<div class="container">
+		<div class="jumbotron jumbotron-fluid text-center">
+		  <div class="container">
+		    <p class="title h3"><img src="/ico/book.svg" alt="">最新课程</p>
+		    <p class="lead">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Magic Of Math</p>
+		  </div>
+		</div>
+		<div class="swiper-container newbook">
+		  <div class="swiper-wrapper">
+		    <div class="swiper-slide">
+		    	<div class="card" style="width: 12rem;">
+					  <img class="card-img-top" src="/ico/book.png" alt="">
+					  <div class="card-body">
+					    <h5 class="card-title">Card title</h5>
+					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <a href="#" class="btn btn-primary">Go somewhere</a>
+					  </div>
+					</div>
+		    </div>
+		    <div class="swiper-slide">
+		    	<div class="card" style="width: 12rem;">
+					  <img class="card-img-top" src="/ico/book.png" alt="">
+					  <div class="card-body">
+					    <h5 class="card-title">Card title</h5>
+					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <a href="#" class="btn btn-primary">Go somewhere</a>
+					  </div>
+					</div>
+		    </div>
+		    <div class="swiper-slide">
+		    	<div class="card" style="width: 12rem;">
+					  <img class="card-img-top" src="/ico/book.png" alt="">
+					  <div class="card-body">
+					    <h5 class="card-title">Card title</h5>
+					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <a href="#" class="btn btn-primary">Go somewhere</a>
+					  </div>
+					</div>
+		    </div>
+		    <div class="swiper-slide">
+		    	<div class="card" style="width: 12rem;">
+					  <img class="card-img-top" src="/ico/book.png" alt="">
+					  <div class="card-body">
+					    <h5 class="card-title">Card title</h5>
+					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <a href="#" class="btn btn-primary">Go somewhere</a>
+					  </div>
+					</div>
+		    </div>
+		    <div class="swiper-slide">
+		    	<div class="card" style="width: 12rem;">
+					  <img class="card-img-top" src="/ico/book.png" alt="">
+					  <div class="card-body">
+					    <h5 class="card-title">Card title</h5>
+					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+					    <a href="#" class="btn btn-primary">Go somewhere</a>
+					  </div>
+					</div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
