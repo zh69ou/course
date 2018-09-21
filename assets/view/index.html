@@ -33,9 +33,9 @@
 			    <ul class="navbar-nav justify-content-end">
 					  <li class="nav-item">
 					    <div class="input-group search">
-							  <input type="text" class="form-control" placeholder="输入你要找的内容">
+							  <input type="text" class="form-control" placeholder="输入你要找的内容" v-model="keywords">
 							  <div class="input-group-append">
-							    <button class="btn btn-outline-secondary" type="button"><img src="/ico/search.svg" alt=""></button>
+							    <button class="btn btn-outline-secondary" type="button"@click="searchwords"><img src="/ico/search.svg" alt=""></button>
 							  </div>
 							</div>
 					  </li>
@@ -68,24 +68,24 @@
 	  <div class="swiper-pagination"></div>
 	</div>
 	<!-- 栏目一 趣味课程 -->
-	<div class="container">
+	<div class="container pb-5">
 		<div class="jumbotron jumbotron-fluid text-center">
 		  <div class="container">
 		    <p class="title h3"><img src="/ico/vedio.svg" alt="">魔力数学课</p>
-		    <p class="lead">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Magic Of Math</p>
+		    <p class="lead">The Magic Of Math</p>
 		  </div>
 		</div>
 		<div class="row bookshow">
-			<div class="col-sm-6">
-			  <img src="/ico/book.jpg" alt="">
+			<div class="col-lg-6">
+			  <img src="/ico/book.jpg" alt="" />
 			</div>
-			<div class="col-sm-1"></div>
-		  <div class="col-sm-5 mt-2">
+			<div class="col-lg-1"></div>
+		  <div class="col-lg-5 mt-2">
 		    <blockquote class="blockquote">
 				  <p class="mb-0 h4">魔力数学课等你发现更多数学奥秘</p>
 				  <footer class="blockquote-footer mt-1">布兰妮系列：《钻石失窃案》全4集</footer>
 				  <p class="content mt-3">在层层安保下，一颗价值连城的钻石为何被布兰妮偷走？是布兰妮独自作案？还是与内部人员勾结所为？这其中又有什么玄机呢？雷顿侦探和K警长又该如何将布兰妮绳之以法呢？</p>
-				  <p class="desc">本期课程提升数学思维能力：</span><span class="desc ornge">观察与理解、计算与表达、逻辑与推理</p>
+				  <p class="desc"><span>本期课程提升数学思维能力：</span><span class="desc ornge">观察与理解、计算与表达、逻辑与推理</span></p>
 				  <div class="mt-3 activity">
 				  	<span class="ornge">限时特惠价：</span>&nbsp;&nbsp;<span class="price ornge">￥49.90</span> <a class="info text-white" href="#">了解详情</a>
 				  </div>
@@ -94,66 +94,244 @@
 		</div>
 	</div>
 	<!-- 最新课程 -->
-	<div class="container">
-		<div class="jumbotron jumbotron-fluid text-center">
-		  <div class="container">
-		    <p class="title h3"><img src="/ico/book.svg" alt="">最新课程</p>
-		    <p class="lead">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Magic Of Math</p>
-		  </div>
+	<div class="newbooks pt-1">
+		<div class="container">
+			<div class="jumbotron jumbotron-fluid text-center">
+			  <div class="container pb-2">
+			    <p class="title h3"><img src="/ico/book.svg" alt="">最新课程</p>
+			    <p class="lead">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Magic Of Math</p>
+			  </div>
+			</div>
 		</div>
 		<div class="swiper-container newbook">
-		  <div class="swiper-wrapper">
-		    <div class="swiper-slide">
-		    	<div class="card" style="width: 12rem;">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+		    	<div class="card">
 					  <img class="card-img-top" src="/ico/book.png" alt="">
-					  <div class="card-body">
-					    <h5 class="card-title">Card title</h5>
-					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					    <a href="#" class="btn btn-primary">Go somewhere</a>
+					  <div class="card-body text-left">
+					    <span class="card-title  mt-2">【专题课】消除发解题</span>
+					    <p class="card-text">￥<big>15</big>元<del>$29</del></p>
 					  </div>
 					</div>
 		    </div>
 		    <div class="swiper-slide">
-		    	<div class="card" style="width: 12rem;">
+		    	<div class="card">
 					  <img class="card-img-top" src="/ico/book.png" alt="">
-					  <div class="card-body">
-					    <h5 class="card-title">Card title</h5>
-					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					    <a href="#" class="btn btn-primary">Go somewhere</a>
+					  <div class="card-body text-left">
+					    <span class="card-title  mt-2">【专题课】消除发解题</span>
+					    <p class="card-text">￥<big>15</big>元<del>$29</del></p>
 					  </div>
 					</div>
 		    </div>
 		    <div class="swiper-slide">
-		    	<div class="card" style="width: 12rem;">
+		    	<div class="card">
 					  <img class="card-img-top" src="/ico/book.png" alt="">
-					  <div class="card-body">
-					    <h5 class="card-title">Card title</h5>
-					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					    <a href="#" class="btn btn-primary">Go somewhere</a>
+					  <div class="card-body text-left">
+					    <span class="card-title  mt-2">【周三】递归与归纳</span>
+					    <p class="card-text">￥<big>15</big>元<del>$29</del></p>
 					  </div>
 					</div>
 		    </div>
 		    <div class="swiper-slide">
-		    	<div class="card" style="width: 12rem;">
+		    	<div class="card">
 					  <img class="card-img-top" src="/ico/book.png" alt="">
-					  <div class="card-body">
-					    <h5 class="card-title">Card title</h5>
-					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					    <a href="#" class="btn btn-primary">Go somewhere</a>
+					  <div class="card-body text-left">
+					    <span class="card-title  mt-2">【周三】递归与归纳</span>
+					    <p class="card-text">￥<big>15</big>元<del>$29</del></p>
 					  </div>
 					</div>
 		    </div>
 		    <div class="swiper-slide">
-		    	<div class="card" style="width: 12rem;">
+		    	<div class="card">
 					  <img class="card-img-top" src="/ico/book.png" alt="">
-					  <div class="card-body">
-					    <h5 class="card-title">Card title</h5>
-					    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-					    <a href="#" class="btn btn-primary">Go somewhere</a>
+					  <div class="card-body text-left">
+					    <span class="card-title  mt-2">【周三】递归与归纳</span>
+					    <p class="card-text">￥<big>15</big>元<del>$29</del></p>
 					  </div>
 					</div>
 		    </div>
+		    <div class="swiper-slide">
+		    	<div class="card">
+					  <img class="card-img-top" src="/ico/book.png" alt="">
+					  <div class="card-body text-left">
+					    <span class="card-title  mt-2">【周三】递归与归纳</span>
+					    <p class="card-text">￥<big>15</big>元<del>$29</del></p>
+					  </div>
+					</div>
+		    </div>
+		    <div class="swiper-slide">
+		    	<div class="card">
+					  <img class="card-img-top" src="/ico/book.png" alt="">
+					  <div class="card-body text-left">
+					    <span class="card-title  mt-2">【周三】递归与归纳</span>
+					    <p class="card-text">￥<big>15</big>元<del>$29</del></p>
+					  </div>
+					</div>
+		    </div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="text-center mt-2 pb-5">
+			  <a href="#"><button class="btn btn-outline-primary more">更多课程&gt;</button></a>
+			</div>
+		</div>
+	</div>
+	<!-- 排行 -->
+	<div class="container pb-5">
+		<div class="jumbotron jumbotron-fluid text-center">
+		  <div class="container">
+		    <p class="title h3"><img src="/ico/ranking.svg" alt="">排行榜</p>
+		    <p class="lead">The Magic Of Math</p>
 		  </div>
+		</div>
+		<div class="row ranking">
+			<div class="col-lg-6 row leftbox">
+				<div class="col-sm-4">
+					<div class="card">
+						<div class="card-img-top" >
+					  	<div class="headimg"><img src="/ico/book.png" alt=""></div>
+					  	<img class="rankico" src="/ico/one.png" alt="">
+						</div>
+					  <div class="card-body text-center">
+					    <div>第一名</div>
+					    <div>阿飞</div>
+					    <div class="point">100分</div>
+					  </div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="card">
+					  <div class="card-img-top" >
+					  	<div class="headimg"><img src="/ico/book.png" alt=""></div>
+					  	<img class="rankico" src="/ico/two.png" alt="">
+						</div>
+					  <div class="card-body text-center">
+					    <div>第二名</div>
+					    <div>阿飞</div>
+					    <div class="point">98分</div>
+					  </div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="card">
+					  <div class="card-img-top" >
+					  	<div class="headimg"><img src="/ico/book.png" alt=""></div>
+					  	<img class="rankico" src="/ico/three.png" alt="">
+						</div>
+					  <div class="card-body text-center">
+					    <div>第三名</div>
+					    <div>阿飞</div>
+					    <div class="point">96分</div>
+					  </div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-1"></div>
+		  <div class="col-lg-5 mt-2 rightbox">
+		  	<div class="card row">
+				  <div class="card-header bg-dark text-light text-left">
+				    <span>我的当前排名：第24名 88分</span>
+				    <span class="float-right">查看排行榜&gt;</span>
+				  </div>
+				  <div class="card-body">
+				  	<ul class="list-unstyled">
+						  <li class="row">
+						  	<div class="col-md-3 col-2 one">第3名</div>
+						  	<div class="col-md-4 two"><img src="/ico/book.png" alt="">奇偶飞侠</div>
+						  	<div class="col-md">&nbsp;</div>
+						  	<div class="col-md-2 col-2">99</div>
+						  </li>
+						  <li class="row">
+						  	<div class="col-md-3 col-2 one">第4名</div>
+						  	<div class="col-md-4 two"><img src="/ico/book.png" alt="">奇偶飞侠</div>
+						  	<div class="col-md">&nbsp;</div>
+						  	<div class="col-md-2 col-2">99</div>
+						  </li>
+						  <li class="row">
+						  	<div class="col-md-3 col-2 one">第5名</div>
+						  	<div class="col-md-4 two"><img src="/ico/book.png" alt="">奇偶飞侠</div>
+						  	<div class="col-md">&nbsp;</div>
+						  	<div class="col-md-2 col-2">99</div>
+						  </li>
+						  <li class="row">
+						  	<div class="col-md-3 col-2 one">第6名</div>
+						  	<div class="col-md-4 two"><img src="/ico/book.png" alt="">奇偶飞侠</div>
+						  	<div class="col-md">&nbsp;</div>
+						  	<div class="col-md-2 col-2">99</div>
+						  </li>
+						  <li class="row">
+						  	<div class="col-md-3 col-2 one">第7名</div>
+						  	<div class="col-md-4 two"><img src="/ico/book.png" alt="">奇偶飞侠</div>
+						  	<div class="col-md">&nbsp;</div>
+						  	<div class="col-md-2 col-2">99</div>
+						  </li>
+						  <li class="row">
+						  	<div class="col-md-3 col-2 one">第8名</div>
+						  	<div class="col-md-4 two"><img src="/ico/book.png" alt="">奇偶飞侠</div>
+						  	<div class="col-md">&nbsp;</div>
+						  	<div class="col-md-2 col-2">99</div>
+						  </li>
+						  <li class="row">
+						  	<div class="col-md-3 col-2 one">第9名</div>
+						  	<div class="col-md-4 two"><img src="/ico/book.png" alt="">奇偶飞侠</div>
+						  	<div class="col-md">&nbsp;</div>
+						  	<div class="col-md-2 col-2">99</div>
+						  </li>
+						</ul>
+				  </div>
+				</div>
+		  </div>
+		</div>
+	</div>
+	<div class="bg-dark text-light pt-3 footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 row">
+					<div class="col-4">
+						<ul class="list-unstyled">
+						  <li>常见问题</li>
+						  <li>注册登录</li>
+						  <li>账号/密码</li>
+						  <li>充值/售后</li>
+						  <li>题库测试</li>
+						</ul>
+					</div>
+					<div class="col-4">
+						<ul class="list-unstyled">
+						  <li>关于14ke</li>
+						  <li>关于我们</li>
+						  <li>加入我们</li>
+						  <li>Q群联盟</li>
+						</ul>
+					</div>
+					<div class="col-4">
+						<ul class="list-unstyled">
+						  <li>产品服务</li>
+						  <li>官方博客</li>
+						  <li>帮助中心</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-2">
+				</div>
+				<div class="col-lg-4">
+					<ul class="list-unstyled">
+					  <li>客服咨询</li>
+					  <li>400-9987011（9:30-18:30）</li>
+					  <li>14keeducation@163.com</li>
+					  <li class="mt-2"><a class="btn btn-primary into"><img src="/ico/qq.svg" />点击进入Q群联盟</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<hr class="bg-light" />
+		<div class="container statement">
+			<div class="row">
+				<div class="col-md-4">
+					<a href="#" class="text-light mr-4">注册声明</a><a href="#" class="text-light mr-4">版权申明</a><a href="#" class="text-light">售后服务</a>
+				</div>
+				<div class="col-md-8 text-right"><span>办学许可证：111010873931661，电信与信息业务经营许可证：渝ICP证150109号</span></div>
+			</div>
 		</div>
 	</div>
 </div>

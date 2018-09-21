@@ -8,7 +8,21 @@ module.exports = merge(common, {
 	plugins: [
     new CleanWebpackPlugin(['public/js','public/css','public/demo','public/ico']),
 		new UglifyJSPlugin({
-			sourceMap: true
+			sourceMap: true,
+			extractComments: false,
+			cache: true,
+      parallel: true,
+			uglifyOptions: {
+		    warnings: false,
+		    parse: {},
+		    compress: {},
+		    mangle: false,
+		    output: null,
+		    toplevel: false,
+		    nameCache: null,
+		    ie8: false,
+		    keep_fnames: false,
+		  }
 		}),
 		new webpack.DefinePlugin({
     	PRODUCTION: JSON.stringify(true),

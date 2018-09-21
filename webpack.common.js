@@ -14,6 +14,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './public/'),
     publicPath:'/',
+    chunkFilename: '[name].js',
     filename: 'js/[name].js'
   },
   resolve: {
@@ -33,7 +34,14 @@ module.exports = {
       filename: 'demo/index.html',
       template: './assets/view/index.html',
       // hash: true,
-      chunks : ['index']
+      minify: {
+        minimize: true,
+        removeConments: true,
+        collapseWhitespace: true,
+        minifyCSS: true,
+        minifyJS: true
+      },
+      chunks : 'index'
     }),
     new HtmlWebpackHarddiskPlugin()
   ],
@@ -43,7 +51,17 @@ module.exports = {
         commons: {
           name: "pub",
           chunks: "initial",
-          minChunks: 2
+          minSize: 0,
+          minChunks: 2,
+          enforce:true
+        },
+        vue: {
+          test: /vue/,
+          name: "vue",
+          chunks: "initial",
+          minSize: 0,
+          minChunks: 2,
+          enforce:true
         }
       }
     }
