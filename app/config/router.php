@@ -1,13 +1,15 @@
 <?php
-use Phalcon\Mvc\Router\Group as RouterGroup;
 
 $router = $di->getRouter(false);
 
 # 首页
-$router->add('/','Index::index',['GET']);
+$router->add('/',[
+	'controller' => 'index',
+  'action'     => 'index'
+],['GET'])->setName('index');
 
 # 课程
-$router->add('/course','Course::list',['GET']);
+$router->add('/course','Course::list',['GET'])->setName('courselist');
 
 # 临时统计
 $router->add('/statistics','Index::statistics',['GET']);

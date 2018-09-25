@@ -8,8 +8,10 @@ class IndexController extends ControllerBase
 
   public function indexAction()
   {
-    var_dump(strlen('123123'));
-  	echo 1;exit;
+    var_dump(date('Y-m-d H:i:s',1537696210)).'<br>';
+    var_dump($this->dispatcher->getControllerName().'_'.$this->dispatcher->getActionName());
+    var_dump($this->dispatcher->getParams());
+  	exit;
   }
 
   # 临时统计数据

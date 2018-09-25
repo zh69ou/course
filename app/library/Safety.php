@@ -15,7 +15,7 @@ class Safety
 	protected $userpower;
 
 	# 用户COOKIE最后操作时间名称
-	protected $lasttime = '';
+	protected $lasttime = 'usetime';
 
 	# 用户唯一识别码
 	protected $usercode = '';
@@ -29,9 +29,15 @@ class Safety
 	# 状态码及返回信息 array
 	protected $code = [];
 
+	# 登录账号保存COOKIE名称
+	protected $landname = 'uuid';
+
+	# 第三方登录信息临时保存名称
+	protected $threename = 'user_temp';
+
 	public function __construct($app)
 	{
-		$this->app = $app;
+		$this->app = &$app;
 		$this->SetSysinfo();
 	}
 
@@ -59,6 +65,25 @@ class Safety
 	}
 
 	/**
+	 * 设置登录
+	 */
+	public function SetLogin($name,$psw)
+	{
+		$user = $this->GetUser($name);
+		if(!empty($user))
+		{
+			if($user->password==$this->CryptPsw($psw,$user->salt))
+			{
+				$this->userinfo = $user;
+				$this->SetCookies($this->landname,$name);
+				$this->SetCookies($this->lasttime,time());
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/**
 	 * 三方登录
 	 */
 	public function ThreeLand($value='wechat')
@@ -76,22 +101,27 @@ class Safety
 			if(isset($tuser->type)&&isset($tuser->onlycode))
 			{
 				# 获取数据库用户信息
-				$user = GetUser($tuser->onlycode,$tuser->type);
+				$user = $this->GetUser($tuser->onlycode,$tuser->type);
 				# 缓存数据
 				if(empty($user))
 				{
-					$this->SetCookies('user_temp',$tuser);
+					$this->SetCookies($this->threename,$tuser);
 				}
 			}
 		}
 	}
 
 	/**
-	 * 获取用户
+	 * 获取用户 local本地 wechat微信 weibo新浪微博
 	 */
 	public function GetUser($value='',$type='local')
 	{
-		# code...
+		if($type=='local')
+		{
+			$user = FtMemberLogin::findFirstByUsername($value);
+		}
+
+		return !empty($user)?$user:'';
 	}
 
 	/**
@@ -100,7 +130,8 @@ class Safety
 	public function SetUser($name='',$psw='123456',$img='')
 	{
 		# 没有创建用户/有更新数据
-		if(empty($this->GetUser($name)))
+		$user = $this->GetUser($name);
+		if(empty($user))
 		{
 			$user = new FtMemberLogin();
 			$user->username = $name;
@@ -112,14 +143,22 @@ class Safety
 			$user->status = 1;
 			if($user->save()!==false)
 			{
-				return $this->ErrorCode('noregin');
+				# 更新头像
+				if(!empty($img)) {}
 			}
 		}else{
+			$user->logintime = time();
 			$user->salt = $code = RandomNum();
-			$this->userinfo->password = $this->CryptPsw($psw,$code);
-			if(!empty($img)){}
+			$user->password = $this->CryptPsw($psw,$code);
+			if($user->save()!==false)
+			{
+				# 更新头像
+				if(!empty($img)) {}
+			}
 		}
-		$tuser = $this->GetCookies('user_temp');
+		# 更新第三方登录资料到数据库
+		$tuser = $this->GetCookies($this->threename);
+		if(!empty($tuser)){}
 	}
 
 	/**
@@ -127,15 +166,28 @@ class Safety
 	 */
 	protected function CheckCookie()
 	{
-		return true;
+		# 判断登录是否过期
+		$user = $this->GetCookies($this->landname);
+		if(!$this->IsLanded()&&!empty($user))
+		{
+			if(empty($this->userinfo))
+			{
+				$this->userinfo = $this->GetUser($user);
+			}
+			$this->SetCookies($this->lasttime,time());
+			return true;
+		}else{
+			$this->DelCookies($this->lasttime);
+			return false;
+		}
 	}
 
 	/**
-	 * 通过实时验证登录码
+	 * 通过实时验证登录码（待开发）
 	 */
 	protected function CheckAccess()
 	{
-		return true;
+		return false;
 	}
 
 	/**
@@ -143,6 +195,9 @@ class Safety
 	 */
 	public function Loginout()
 	{
+		$this->DelCookies($this->landname);
+		$this->DelCookies($this->lasttime);
+		$this->userinfo = null;
 		return true;
 	}
 
@@ -205,13 +260,13 @@ class Safety
 	/**
 	 * 通过存储COOKIE值的时间，判断是否登录过期
 	 */
-	public function IsLanding()
+	public function IsLanded()
 	{
 		if(empty($this->indate))
 		{
 			return false;
 		} else {
-			return $status = (empty($this->cookies['usetime'])||$this->cookies['usetime'] + $this->indate < time()) ? true : false;
+			return $status = (empty($this->GetCookies($this->lasttime))||$this->GetCookies($this->lasttime) + $this->indate < time()) ? true : false;
 		}
 	}
 
