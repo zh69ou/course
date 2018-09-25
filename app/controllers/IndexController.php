@@ -8,6 +8,7 @@ class IndexController extends ControllerBase
 
   public function indexAction()
   {
+    var_dump(strlen('123123'));
   	echo 1;exit;
   }
 
