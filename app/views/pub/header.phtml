@@ -1,0 +1,36 @@
+<div class="fixed-top">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light"><a class="navbar-brand" href="<?php echo $this->url->get(['for'=>'index'])?>"><img class="logo" src="/ico/logo.png" alt=""></a>
+            <button class="navbar-toggler" type="button" @click="topmenuevent"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" ref="topmenu">
+                <ul class="navbar-nav mr-auto firstmenu">
+                    <li class="nav-item active"><a class="nav-link" href="<?php echo $this->url->get(['for'=>'index'])?>">首页</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">课程</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">题库</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">商城</a></li>
+                </ul>
+                <ul class="navbar-nav justify-content-end">
+                    <li class="nav-item">
+                        <div class="input-group search">
+                            <input type="text" class="form-control" placeholder="输入你要找的内容" v-model="keywords">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" @click="searchwords"><img src="/ico/search.svg" alt=""></button>
+                            </div>
+                        </div>
+                    </li>
+                    <?php if(!empty($user)){ ?>
+                    <li class="nav-item note"><a class="nav-link" href="#"><img src="/ico/note.svg" alt=""> <span>12</span></a></li>
+                    <li class="nav-item user dropdown"><a class="nav-link dropdown-toggle" @click="usermenuevent"><img src="/ico/user.jpg" alt=""><?php echo $user->username ?></a>
+                        <div class="dropdown-menu" ref="usermenu"><a class="dropdown-item" href="#"><img src="/ico/userico.svg" alt="">个人中心</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="<?php echo $this->url->get(['for'=>'logout'])?>"><img src="/ico/logoutico.svg" alt="">退出</a>
+                        </div>
+                    </li>
+                    <?php }else{ ?>
+                    <li class="nav-item"><a href="<?php echo $this->url->get(['for'=>'login'])?>" class="btn btn-outline-primary mt-2 ml-2">登录</a></li>
+                    <?php } ?>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>

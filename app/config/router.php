@@ -3,10 +3,14 @@
 $router = $di->getRouter(false);
 
 # 首页
-$router->add('/',[
-	'controller' => 'index',
-  'action'     => 'index'
-],['GET'])->setName('index');
+$router->add('/',['controller'=>'index','action'=>'index'],['GET'])->setName('index');
+
+# 登录
+$router->add('/login',['controller'=>'index','action'=>'login'],['GET','POST'])->setName('login');
+
+#注册
+$router->add('/regin',['controller'=>'index','action'=>'regin'],['GET','POST'])->setName('regin');
+$router->add('/logout',['controller'=>'index','action'=>'logout'],['GET','POST'])->setName('logout');
 
 # 课程
 $router->add('/course','Course::list',['GET'])->setName('courselist');

@@ -7,6 +7,11 @@ use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Mvc\Model\Metadata\Memory as MetaDataAdapter;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
 use Phalcon\Flash\Direct as Flash;
+use Phalcon\Security;
+use Phalcon\Http\Response\Cookies;
+use Phalcon\Crypt;
+use Phalcon\Cache\Frontend\Data as FrontendData;
+use Phalcon\Cache\Backend\File as BackFile;
 
 /**
  * Shared configuration service
@@ -110,3 +115,52 @@ $di->setShared('session', function () {
 
     return $session;
 });
+
+$di->set('security', function () {$security = new Security();
+
+    $security->setWorkFactor(12);
+
+    return $security;
+}, true );
+
+$di->set('crypt',function(){
+
+    $crypt = new Crypt();
+
+    $crypt->setCipher('aes-256-ctr');
+
+    $key = "T4\xb1\x8d\xa9\x98\x054t7w!z%C*F-Jk\x98\x05\\\x5c";
+
+    $crypt->setKey($key);
+
+    return $crypt;
+});
+
+$di->set('cookies',function(){
+
+    $cookies = new Cookies();
+
+    $cookies->useEncryption(true);
+
+    return $cookies;
+});
+
+$di->set(
+    'modelsCache',
+    function () {
+        $frontCache = new FrontendData(
+            [
+                'lifetime' => 86400
+            ]
+        );
+
+        $cache = new BackFile(
+            $frontCache,
+            [
+                'cacheDir' => BASE_PATH.'/cache/'
+            ]
+        );
+
+        return $cache;
+    }
+);

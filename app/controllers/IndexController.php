@@ -8,10 +8,48 @@ class IndexController extends ControllerBase
 
   public function indexAction()
   {
-    var_dump(date('Y-m-d H:i:s',1537696210)).'<br>';
-    var_dump($this->dispatcher->getControllerName().'_'.$this->dispatcher->getActionName());
-    var_dump($this->dispatcher->getParams());
-  	exit;
+   //  var_dump(date('Y-m-d H:i:s',1537696210)).'<br>';
+   //  var_dump($this->safety->ReturnUser());
+  	// exit;
+  }
+
+  public function loginAction()
+  {
+    if ($this->request->isPost()&&$this->security->checkToken())
+    {
+      $error = $this->config->error['unameerror'];
+      $user = $this->request->getPost('username');
+      $psw = $this->request->getPost('password');
+      if($this->safety->SetLogin($user,$psw))
+      {
+        $error = $this->config->error['unameerror'];
+      }
+      if ($this->request->isAjax())
+      {
+        return $this->ReturnJson($error);
+      }
+    }
+    # 判断是否已登录
+    if($this->safety->IsLogin())
+    {
+      $this->dispatcher->forward(
+          [
+              'controller' => 'index',
+              'action'     => 'index'
+          ]
+      );
+    }
+  }
+
+  public function logoutAction()
+  {
+    $this->safety->Loginout();
+    $this->dispatcher->forward(
+        [
+            'controller' => 'index',
+            'action'     => 'index'
+        ]
+    );
   }
 
   # 临时统计数据

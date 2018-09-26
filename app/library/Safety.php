@@ -84,6 +84,14 @@ class Safety
 	}
 
 	/**
+	 * 返回当前用户
+	 */
+	public function ReturnUser()
+	{
+		return $this->userinfo;
+	}
+
+	/**
 	 * 三方登录
 	 */
 	public function ThreeLand($value='wechat')

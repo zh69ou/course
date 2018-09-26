@@ -6,7 +6,8 @@ const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 
 module.exports = {
   entry: {
-    index: './assets/js/index.js'
+    index: './assets/js/index.js',
+    login: './assets/js/login.js'
   },
   devServer: {
     contentBase: './public'
@@ -14,7 +15,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './public/'),
     publicPath:'/',
-    chunkFilename: '[name].js',
+    chunkFilename: 'js/[name].js',
     filename: 'js/[name].js'
   },
   resolve: {

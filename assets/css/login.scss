@@ -1,0 +1,9 @@
+@import 'pub';
+
+#app .modal {
+	position: relative;
+	z-index:1;
+	.modal-dialog {
+		margin: 0rem auto;
+	}
+}

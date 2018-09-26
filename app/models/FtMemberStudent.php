@@ -49,6 +49,13 @@ class FtMemberStudent extends \Phalcon\Mvc\Model
     /**
      *
      * @var integer
+     * @Column(column="inschool", type="integer", length=10, nullable=true)
+     */
+    public $inschool;
+
+    /**
+     *
+     * @var integer
      * @Column(column="clazz", type="integer", length=10, nullable=true)
      */
     public $clazz;

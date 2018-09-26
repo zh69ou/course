@@ -1,19 +1,5 @@
 import Vue from 'vue'
 import Swiper from 'swiper'
-// require.ensure(
-//     ["vue"],
-//     () => {
-//         var Vue = require("vue");
-//     },
-//     "Vue"
-// )
-// require.ensure(
-//     ["swiper"],
-//     () => {
-//         var Swiper = require("swiper");
-//     },
-//     "Swiper"
-// )
 
 import '../ico/search.svg'
 import '../ico/note.svg'
