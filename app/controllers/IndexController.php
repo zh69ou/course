@@ -11,7 +11,10 @@ class IndexController extends ControllerBase
     // echo strtotime('2019-01-01 00:00:00');
     // var_dump(date('Y-m-d H:i:s',1546272000)).'<br>';
    //  var_dump($this->safety->ReturnUser());
+   //  var_dump(IsMobile());
   	// exit;
+    # 获取banner
+    // $this->view->banner = GetList('FtBanner',['order'=>'displayorder ASC']);
   }
 
   public function loginAction()

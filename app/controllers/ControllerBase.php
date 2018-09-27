@@ -12,9 +12,20 @@ class ControllerBase extends Controller
   	$this->safety = new Safety($app);
 
   	# 判断是否页面需要登录
-  	if($this->safety->IsLogin()&&$dispatcher->getParam('login')=='is')
+  	if(!$this->safety->IsLogin()&&$dispatcher->getParam('login')=='is')
   	{
   		# 处理非登录拦截
+  		if ($this->request->isAjax())
+  		{
+  			return $this->ReturnJson($this->config->error['noland']);
+  		}else{
+  			$this->dispatcher->forward(
+          [
+            'controller' => 'index',
+            'action'     => 'login'
+          ]
+      	);
+  		}
   	}
   	$this->view->user = $this->safety->ReturnUser();
   	$this->view->jsfile = $dispatcher->getActionName();
