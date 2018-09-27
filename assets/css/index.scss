@@ -76,6 +76,14 @@
 	.swiper-slide:hover {
 		padding: 0rem;
 	}
+	.card-title {
+		display: inline-block;
+		white-space: nowrap;
+		width: 100%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		margin: 0rem;
+	}
 	.card-body {
 		padding: 0.6rem;
 		big {

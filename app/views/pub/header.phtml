@@ -20,7 +20,7 @@
                     </li>
                     <?php if(!empty($user)){ ?>
                     <li class="nav-item note"><a class="nav-link" href="#"><img src="/ico/note.svg" alt=""> <span>12</span></a></li>
-                    <li class="nav-item user dropdown"><a class="nav-link dropdown-toggle" @click="usermenuevent"><img src="/ico/user.jpg" alt=""><?php echo $user->username ?></a>
+                    <li class="nav-item user dropdown"><a class="nav-link dropdown-toggle" @click="usermenuevent"><img src="/ico/user.jpg" alt=""><span><?php echo $user->username ?></span></a>
                         <div class="dropdown-menu" ref="usermenu"><a class="dropdown-item" href="#"><img src="/ico/userico.svg" alt="">个人中心</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="<?php echo $this->url->get(['for'=>'logout'])?>"><img src="/ico/logoutico.svg" alt="">退出</a>
@@ -33,4 +33,5 @@
             </div>
         </nav>
     </div>
+    <div class="bg"></div>
 </div>

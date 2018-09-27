@@ -8,7 +8,8 @@ class IndexController extends ControllerBase
 
   public function indexAction()
   {
-   //  var_dump(date('Y-m-d H:i:s',1537696210)).'<br>';
+    // echo strtotime('2019-01-01 00:00:00');
+    // var_dump(date('Y-m-d H:i:s',1546272000)).'<br>';
    //  var_dump($this->safety->ReturnUser());
   	// exit;
   }
