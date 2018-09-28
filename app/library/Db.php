@@ -5,7 +5,7 @@
 
 	/**
 	 * 获取列表
-	 * 获取表名称
+	 * name 获取表名称
 	 * where 条件
 	 * page 页码
 	 * size 数量
@@ -19,7 +19,7 @@ if(!function_exists('GetList'))
 		$size = $size<1 ? 1 : $size;
 
 		# 条件
-		$arr[] = $where[0];
+		if(!empty($where[0]))$arr[] = $where[0];
 
 		# 显示字段
 		if(!empty($where['columns'])) $arr['columns'] = $where['columns'];
@@ -34,7 +34,7 @@ if(!function_exists('GetList'))
 		$arr['limit'] = $size;
 
 		# 开始条数
-		$arr['limit'] = ($page-1)*$size;
+		$arr['offset'] = ($page-1)*$size;
 		$arr['cache'] = ['lifetime' => 3600, 'key' => md5($name.json_encode($where).$page.$size.$field)];
 
 		$list = $name::find($arr);
@@ -44,7 +44,7 @@ if(!function_exists('GetList'))
 
 	/**
 	 * 获取列表
-	 * 获取表名称
+	 * name 获取表名称
 	 * where 条件
 	 * page 页码
 	 * size 数量
@@ -68,7 +68,33 @@ if(!function_exists('GetOne'))
 
 		$arr['cache'] = ['lifetime' => 3600, 'key' => md5($name.json_encode($where).$page.$size.$field)];
 
-		// $list = $name::findFirst($arr);
+		$info = $name::findFirst($arr);
+		return $info;
+	}
+}
+
+	/**
+	 * 排名
+	 */
+if(!function_exists('GetRanked'))
+{
+	function GetRanked($db,$uid = '')
+	{
+    $sql = 'SELECT uid,@num:=@num+1 AS num,score,name,avatar,sex FROM (SELECT uid,score,name,avatar,sex FROM ft_member_student ORDER BY score DESC,uid ASC) AS obj,(SELECT @num:=0) r';
+    $val = $db->fetchAll($sql);
+    $user = array();
+    $ranked = array();
+    if(!empty($val)) {
+      foreach($val AS $k => $v) {
+        $user[$v['uid']] = $v;
+        if($k<=10)
+        {
+          $ranked[]=$v;
+        }
+      }
+    }
+    $list['user'] = !empty($uid)&&isset($user[$uid])?$user[$uid]:'';
+    $list['rank'] = $ranked;
 		return $list;
 	}
 }

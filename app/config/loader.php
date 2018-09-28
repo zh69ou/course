@@ -12,4 +12,10 @@ $loader->registerDirs(
         $config->application->libraryDir
     ]
 );
+$loader->registerFiles(
+    [
+        $config->application->libraryDir.'/PublicTools.php',
+        $config->application->libraryDir.'/Db.php'
+    ]
+);
 $loader->register();

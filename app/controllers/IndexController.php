@@ -10,11 +10,15 @@ class IndexController extends ControllerBase
   {
     // echo strtotime('2019-01-01 00:00:00');
     // var_dump(date('Y-m-d H:i:s',1546272000)).'<br>';
-   //  var_dump($this->safety->ReturnUser());
-   //  var_dump(IsMobile());
   	// exit;
     # 获取banner
-    // $this->view->banner = GetList('FtBanner',['order'=>'displayorder ASC']);
+    $this->view->banner = GetList('FtBanner',['order'=>'displayorder ASC']);
+    # 最新的几节课
+    $this->view->course = GetList('FtClass',['del_status=1 and showid=0 and catid=1','order'=>'displayorder DESC,id DESC']);
+    # 排名
+    $uid = !empty($this->safety->ReturnUser()) ? $this->safety->ReturnUser()->uid : '';
+    $this->view->ranked = GetRanked($this->db,$uid);
+    echo '<pre>';var_dump($this->view->ranked);exit;
   }
 
   public function loginAction()
