@@ -71,6 +71,14 @@ class FtClass extends \Phalcon\Mvc\Model
     /**
      *
      * @var string
+     * @Column(column="vid", type="string", nullable=true)
+     */
+    public $vid;
+
+
+    /**
+     *
+     * @var string
      * @Column(column="url", type="string", nullable=true)
      */
     public $url;

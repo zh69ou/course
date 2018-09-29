@@ -3,21 +3,64 @@
  * 数据库统一管理
  */
 
-	/**
-	 * 获取列表
-	 * name 获取表名称
-	 * where 条件
-	 * page 页码
-	 * size 数量
-	 * field 显示字段逗号(,)分隔
-	 */
+/**
+ * 拼装需要的数组
+ * field array key返回的key value对应数据库字段
+ * obj 需要处理的数组或对象
+ */
+if(!function_exists('BuildList'))
+{
+	function BuildList($field,$obj)
+	{
+		$arr = [];
+		foreach ($obj as $k => $v) {
+			$arr[$k]=BuildInfo($field,$v);
+		}
+		return $arr;
+	}
+}
+
+/**
+ * 拼装需要的字段
+ * field array key返回的key value对应数据库字段
+ * obj 需要处理的数组或对象
+ */
+if(!function_exists('BuildInfo'))
+{
+	function BuildInfo($field,$obj)
+	{
+		$arr = [];
+		foreach ($field as $key => $value) {
+			$v = explode('->',$value);
+			$one = $v[0];
+			$str = $obj->$one;
+			$i = 1;
+			while (isset($v[$i])) {
+				$two = $v[$i];
+				if(isset($str->$two))$str=$str->$two;
+				$i++;
+			}
+			$arr[$key] = $str;
+		}
+		return $arr;
+	}
+}
+
+
+/**
+ * 获取列表
+ * name 获取表名称
+ * where 条件
+ * page 页码
+ * size 数量
+ * field 显示字段逗号(,)分隔
+ */
 if(!function_exists('GetList'))
 {
 	function GetList($name,$where=[],$page=1,$size=10,$field='')
 	{
 		$page = $page<1 ? 1 : $page;
 		$size = $size<1 ? 1 : $size;
-
 		# 条件
 		if(!empty($where[0]))$arr[] = $where[0];
 
