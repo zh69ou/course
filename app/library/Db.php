@@ -5,16 +5,50 @@
 
 /**
  * 拼装需要的数组
+ * name 获取表名称
+ * arr array key对应数据库字段 value添加内容
+ */
+if(!function_exists('AddData'))
+{
+	function AddData($name,$arr)
+	{
+		$info = new $name;
+		foreach ($arr as $k => $v) {
+			$info->$k = $v;
+		}
+		if($info->save()!==false)
+		{
+			return true;
+		}else{
+			return false;
+		}
+	}
+}
+
+/**
+ * 拼装需要的数组
  * field array key返回的key value对应数据库字段
  * obj 需要处理的数组或对象
+ * onlyid 唯一ID字段
+ * pfield 关联上级字段
  */
 if(!function_exists('BuildList'))
 {
-	function BuildList($field,$obj)
+	function BuildList($field,$obj,$onlyid='',$pfield='')
 	{
 		$arr = [];
 		foreach ($obj as $k => $v) {
-			$arr[$k]=BuildInfo($field,$v);
+			if(!empty($onlyid)&&!empty($pfield))
+			{
+				if(!empty($v->$pfield))
+				{
+					$arr[$v->$pfield]['list'][]=BuildInfo($field,$v);
+				}else{
+					$arr[$v->$onlyid]=BuildInfo($field,$v);
+				}
+			}else{
+				$arr[$k]=BuildInfo($field,$v);
+			}
 		}
 		return $arr;
 	}
@@ -78,7 +112,7 @@ if(!function_exists('GetList'))
 
 		# 开始条数
 		$arr['offset'] = ($page-1)*$size;
-		$arr['cache'] = ['lifetime' => 3600, 'key' => md5($name.json_encode($where).$page.$size.$field)];
+		$arr['cache'] = ['lifetime' => 300, 'key' => md5($name.json_encode($where).$page.$size.$field)];
 
 		$list = $name::find($arr);
 		return $list;
