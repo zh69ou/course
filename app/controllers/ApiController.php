@@ -191,12 +191,10 @@ class ApiController extends ControllerBase
 			{
 				$arr = [
 					'tid' => $id,
-					'pid' => $pid,
 					'sid' => $uid,
-					'content' => $content,
-					'addtime' => time()
+					'inputtime' => time()
 				];
-				if(AddData('FtClassComment',$arr)) $error = $this->config->error['success'];
+				if(AddData('FtRelations',$arr)) $error = $this->config->error['success'];
 			}else{
 				$error = $this->config->error['noland'];
 			}
