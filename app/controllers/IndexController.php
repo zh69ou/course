@@ -18,7 +18,7 @@ class IndexController extends ControllerBase
     # 排名
     $uid = !empty($this->safety->ReturnUser()) ? $this->safety->ReturnUser()->uid : '';
     $this->view->ranked = GetRanked($this->db,$uid);
-    echo '<pre>';var_dump($this->view->ranked);exit;
+    // echo '<pre>';var_dump($this->view->ranked);exit;
   }
 
   public function loginAction()
