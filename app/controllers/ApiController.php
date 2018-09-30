@@ -179,7 +179,7 @@ class ApiController extends ControllerBase
 		return $this->ReturnJson($error);
 	}
 
-	# 关注老师
+	# 关注/取消关注老师
 	public function teacheriattentionAction()
 	{
 		$error = $this->config->error['dataerror'];
@@ -189,15 +189,90 @@ class ApiController extends ControllerBase
 		{
 			if(!empty($uid))
 			{
-				$arr = [
-					'tid' => $id,
-					'sid' => $uid,
-					'inputtime' => time()
-				];
-				if(AddData('FtRelations',$arr)) $error = $this->config->error['success'];
+				$info = GetOne('FtRelations',['tid="'.$id.'" AND sid="'.$uid.'"'],'',false);
+				if(!empty($info))
+				{
+					if($info->delete()!==false) $error = $this->config->error['success'];
+				}else{
+					$arr = [
+						'tid' => $id,
+						'sid' => $uid,
+						'inputtime' => time()
+					];
+					if(AddData('FtRelations',$arr)) $error = $this->config->error['success'];
+				}
 			}else{
 				$error = $this->config->error['noland'];
 			}
+		}
+		return $this->ReturnJson($error);
+	}
+
+	# 收藏/取消收藏课程
+	public function coursecollectAction()
+	{
+		$error = $this->config->error['dataerror'];
+		$id = $this->request->getPost('id');
+		$uid = !empty($this->safety->ReturnUser()) ? $this->safety->ReturnUser()->uid : '';
+		if(!empty($id))
+		{
+			if(!empty($uid))
+			{
+				$info = GetOne('FtFavoriteClass',['cid="'.$id.'" AND uid="'.$uid.'"'],'',false);
+				if(!empty($info))
+				{
+					if($info->delete()!==false) $error = $this->config->error['success'];
+				}else{
+					$arr = [
+						'cid' => $id,
+						'uid' => $uid
+					];
+					if(AddData('FtFavoriteClass',$arr)) $error = $this->config->error['success'];
+				}
+			}else{
+				$error = $this->config->error['noland'];
+			}
+		}
+		return $this->ReturnJson($error);
+	}
+
+	# 排行
+	public function rankAction()
+	{
+		$error = $this->config->error['success'];
+		$uid = !empty($this->safety->ReturnUser()) ? $this->safety->ReturnUser()->uid : '';
+		$obj = $this;
+		$rank = GetRanked($this->db,$uid);
+		return $this->ReturnJson($error,$rank);
+	}
+
+	#签到
+	public function signinAction()
+	{
+		$error = $this->config->error['dataerror'];
+		$uid = !empty($this->safety->ReturnUser()) ? $this->safety->ReturnUser()->uid : '';
+		$time = time();
+		$year = date('Y',$time);
+		$month = date('m',$time);
+		$day = date('d',$time);
+		$info = GetOne('FtSigninLog',['uid="'.$uid.'" AND year ="'.$year.'" AND month ="'.$month.'" AND day ="'.$day.'"'],'',false);
+		if(empty($info))
+		{
+			$arr= [
+				'uid'=>$uid,
+				'year'=>$year,
+				'month'=>$month,
+				'day'=>$day,
+				'inputtime'=>$time
+			];
+			if(AddData('FtSigninLog',$arr))
+			{
+				$error = $this->config->error['success'];
+			}else{
+				$error = $this->config->error['adderror'];
+			}
+		}else{
+			$error = $this->config->error['isexist'];
 		}
 		return $this->ReturnJson($error);
 	}

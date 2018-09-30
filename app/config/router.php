@@ -19,10 +19,17 @@ $router->add('/api/teacher/attention',['controller'=>'api','action'=>'teacheriat
 # 课程
 $router->add('/api/course',['controller'=>'api','action'=>'course'],['GET','POST'])->setName('course');
 $router->add('/api/course/{id:[0-9]+}',['controller'=>'api','action'=>'courseinfo'],['GET','POST'])->setName('courseinfo');
+$router->add('/api/course/collect',['controller'=>'api','action'=>'coursecollect'],['GET','POST'])->setName('coursecollect');
 
 # 评论
 $router->add('/api/comment',['controller'=>'api','action'=>'comment'],['GET','POST'])->setName('comment');
 $router->add('/api/comment/add',['controller'=>'api','action'=>'addcomment'],['GET','POST'])->setName('addcomment');
+
+# 排行
+$router->add('/api/rank',['controller'=>'api','action'=>'rank'],['GET','POST'])->setName('rank');
+
+# 签到
+$router->add('/api/signin',['controller'=>'api','action'=>'signin'],['GET','POST'])->setName('signin');
 
 #注册
 $router->add('/regin',['controller'=>'index','action'=>'regin'],['GET','POST'])->setName('regin');

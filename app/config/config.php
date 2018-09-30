@@ -53,8 +53,9 @@ return new \Phalcon\Config([
         'pswerror'      => 1004,//密码错误
         'nopower'       => 1005,//没有权限
         'noaudit'       => 1006,//账号审核
-        'isexist'       => 1007,//账号存在
+        'isexist'       => 1007,//数据存在
         'noregin'       => 1008,//注册失败
+        'adderror'      => 1009,//添加失败
 
         'dataerror'     => 2001,//数据错误
         'crpterror'     => 2002//数据加密解密错误

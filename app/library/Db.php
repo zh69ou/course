@@ -129,7 +129,7 @@ if(!function_exists('GetList'))
 	 */
 if(!function_exists('GetOne'))
 {
-	function GetOne($name,$where=[],$field='')
+	function GetOne($name,$where=[],$field='',$cache=true)
 	{
 		# 条件
 		$arr[] = $where[0];
@@ -143,7 +143,7 @@ if(!function_exists('GetOne'))
 		# 排序
 		if(!empty($where['group'])) $arr['order'] = $where['order'];
 
-		$arr['cache'] = ['lifetime' => 3600, 'key' => md5($name.json_encode($where).$page.$size.$field)];
+		if($cache)$arr['cache'] = ['lifetime' => 3600, 'key' => md5($name.json_encode($where).$page.$size.$field)];
 
 		$info = $name::findFirst($arr);
 		return $info;
@@ -157,7 +157,7 @@ if(!function_exists('GetRanked'))
 {
 	function GetRanked($db,$uid = '')
 	{
-    $sql = 'SELECT uid,@num:=@num+1 AS num,score,name,avatar,sex FROM (SELECT uid,score,name,avatar,sex FROM ft_member_student ORDER BY score DESC,uid ASC) AS obj,(SELECT @num:=0) r';
+    $sql = 'SELECT uid,@num:=@num+1 AS ranking,score,name,clazz as grade,avatar as img,sex FROM (SELECT uid,score,name,clazz,avatar,sex FROM ft_member_student ORDER BY score DESC,uid ASC) AS obj,(SELECT @num:=0) r';
     $val = $db->fetchAll($sql);
     $user = array();
     $ranked = array();
