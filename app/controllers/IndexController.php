@@ -19,7 +19,7 @@ class IndexController extends ControllerBase
     $uid = !empty($this->safety->ReturnUser()) ? $this->safety->ReturnUser()->uid : '';
     $this->view->ranked = GetRanked($this->db,$uid);
     // echo '<pre>';var_dump($this->view->ranked);
-    echo 3;
+    echo 4;
     exit;
   }
 
