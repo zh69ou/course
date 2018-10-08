@@ -1,0 +1,612 @@
+﻿.slick {
+    max-width: 1920px;
+    margin: 80px auto 0;
+}
+
+.slick img {
+    width: 100%;
+}
+
+.slick-dots {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%);
+}
+
+.slick-dots li:not(:first-child) {
+    margin-left: 10px;
+}
+
+.slick-dots li {
+    display: inline-block;
+}
+
+.slick-dots li.slick-active button {
+    width: 50px;
+    background: #1bb8ff;
+    transition: width .3s;
+}
+
+.slick-dots li button {
+    width: 30px;
+    height: 5px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, .8);
+    font-size: 0;
+}
+
+.common-title {
+    text-align: center;
+}
+
+.common-title h1 {
+    display: inline-block;
+    position: relative;
+    font-weight: normal;
+    font-size: 36px;
+    color: #333;
+}
+
+.common-title h1:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: -49px;
+    width: 34px;
+    height: 34px;
+    margin-top: -17px;
+    background: url("../images/live.png") 0/contain no-repeat;
+}
+
+.common-title p {
+    margin-top: 5px;
+    font-family: Arial;
+    color: #a6a6a6;
+    letter-spacing: 2px;
+}
+
+/* 直播课程 */
+.live {
+    margin-top: 70px;
+}
+
+.live-container {
+    width: 1300px;
+    margin: 40px auto 0;
+}
+
+.live-container .img {
+    position: relative;
+    display: block;
+}
+
+.live-container .img .cover {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #fff;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+.live-container .img .cover h3 {
+    font-weight: normal;
+    font-size: 22px;
+    opacity: .57;
+}
+
+.live-container .img .cover div {
+    margin-top: 24px;
+    padding: 24px 50px 35px 78px;
+    border-radius: 50px;
+    background: rgba(0, 0, 0, .43);
+    white-space: nowrap;
+}
+
+.live-container .img .cover div span {
+    font-size: 16px;
+    color: #fff;
+
+}
+
+.live-container .img .cover div span:nth-child(odd) {
+    margin: 0 10px;
+    font-weight: bold;
+    font-size: 36px;
+}
+
+.live-container .img .cover div span:nth-child(even) {
+    vertical-align: text-bottom;
+}
+
+.live-container-content {
+    margin: 10px 0 0 100px;
+    width: 383px;
+}
+
+.live-container-content h1 {
+    font-weight: normal;
+    font-size: 28px;
+    color: #343434;
+}
+
+.live-container-content h2 {
+    margin-top: 6px;
+    font-weight: normal;
+    font-size: 24px;
+    color: #343434;
+}
+
+.live-container-content .desc {
+    margin-top: 22px;
+    line-height: 1.75;
+    color: #737373;
+}
+
+.live-container-content .livetime {
+    margin-top: 43px;
+    font-size: 18px;
+    color: #737337;
+}
+
+.live-container-content .time {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #4c4c4c;
+}
+
+.live-container-content a {
+    display: block;
+    width: 153px;
+    height: 43px;
+    margin-top: 40px;
+    background: url("../images/buy.png") 0 no-repeat;
+}
+/* END 直播课程 */
+
+/* 周三课堂 */
+.latest {
+    position: relative;
+    margin-top: 85px;
+    padding: 6px 0 80px;
+    background: #f7f7f7;
+    overflow: hidden;
+}
+
+.latest:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 18px 23px 0 23px;
+    border-color: #fff transparent transparent transparent;
+}
+
+.latest .common-title h1:before {
+    background-image: url("../images/latest.png");
+}
+
+/*.latest-slick .slick-slide {*/
+    /*width: 505px !important;*/
+/*}*/
+
+/*.latest-slick .slick-slide.slick-current.slick-active.slick-center {*/
+    /*width: 554px!important;*/
+/*}*/
+
+.latest-slick {
+    margin-top: 100px;
+}
+
+.latest-slick a {
+    display: block;
+    width: 510px;
+    margin: 0 auto;
+}
+
+.latest-slick .slick-slide {
+    transition: transform .5s;
+}
+.latest-slick .slick-slide:hover {
+    transform: scale(1.2);
+}
+
+.latest-slick .slick-center {
+    /* transform: scale(1.2); */
+    
+}
+
+.latest-slick .slick-arrow {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    margin-top: -25px;
+    border: none;
+    outline: none;
+    font-size: 0;
+    cursor: pointer;
+}
+
+.latest-slick .slick-prev {
+    left: 0;
+    background: url("../images/arrow_left.png");
+}
+
+.latest-slick .slick-next {
+    right: 0;
+    background: url("../images/arrow_right.png");
+}
+
+.latest-slick-img {
+    width: 100%;
+    height: 252px;
+    border-radius: 5px;
+}
+
+.latest-slick-img img {
+    width: 100%;
+    height: 100%;
+}
+
+.latest-slick-container {
+    position: relative;
+    height: 95px;
+    padding: 20px 15px 0;
+    background: #fff;
+}
+
+.latest-slick-container h3 {
+    margin-bottom: 30px;
+    font-weight: normal;
+    font-size: 18px;
+    color: #4c4c4c;
+}
+
+.latest-slick-container span {
+    font-size: 24px;
+    color: #666666;
+}
+
+.latest-slick-container span.ls-container-price {
+    font-size: 30px;
+    color: #fd8621;
+}
+
+.ls-container-avatar {
+    position: absolute;
+    top: -38px;
+    right: 4%;
+    text-align: center;
+}
+
+.ls-container-avatar img {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+.ls-container-avatar p {
+    margin-top: 20px;
+    color: #4c4c4c;
+}
+
+.ls-container-avatar p span {
+    font-size: 18px;
+}
+
+.ls-container-avatar p span:last-child {
+    margin-left: 15px;
+}
+
+.latest-slick .slick-list {
+    overflow: visible;
+}
+
+.latest-more {
+    display: block;
+    width: 190px;
+    height: 38px;
+    margin: 100px auto 0;
+    border-radius: 20px;
+    border: 1px solid #1bb8ff;
+    line-height: 38px;
+    text-align: center;
+    font-size: 22px;
+    color: #1bb8ff;
+    transition: .3s;
+}
+
+.latest-more:hover {
+    background: #1bb8ff;
+    color: #fff;
+}
+/* END 周三课堂 */
+
+/* 排行榜 */
+.ranking {
+    position: relative;
+    padding: 80px 0 30px 0;
+}
+.ranking:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 18px 23px 0 23px;
+    border-color: #f7f7f7 transparent transparent transparent;
+}
+.ranking .common-title h1:before {
+    background-image: url("../images/ranking.png");
+}
+.ranking-container {
+    width: 1100px;
+    margin: 30px auto 0;
+}
+.ranking-container .top {
+    position: relative;
+    width: 312px;
+    height: 260px;
+    margin: 50px;
+    font-size: 0;
+}
+.ranking-container .top img {
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+.ranking-container .top1-box {
+    position: absolute;
+    top: 0;
+    left: 50%;  
+    width: 120px;
+    height: 120px;
+    margin-left: -60px;
+    border-radius: 50%;
+}
+.ranking-container .top2-box {
+    position: absolute;
+    top: 75px;
+    left: 10px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+}
+.ranking-container .top3-box {
+    position: absolute;
+    top: 105px;
+    right: 5px;
+    width: 83px;
+    height: 83px;
+    border-radius: 50%;
+}
+.ranking-container .top > div > div {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.ranking-container .top > div > div img {
+    width: 100%;
+    height: 100%;
+}
+.ranking-container .top > div > div p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 25%;
+    background: rgba(0, 0, 0, .5);
+    line-height: 200%;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+}
+.ranking-container .top2-box p {
+    line-height: 22.5px !important;
+}
+.ranking-container .top3-box p {
+    line-height: 20px !important;
+}
+.ranking-container .top1-box i {
+    position: absolute;
+    top: -55px;
+    right: -14px;
+    display: block;
+    width: 72px;
+    height: 88px;
+    background: url("../images/top1_head.png") no-repeat;
+}
+.ranking-container .top2-box i {
+    position: absolute;
+    top: -28px;
+    right: -23px;
+    display: block;
+    width: 58px;
+    height: 52px;
+    background: url("../images/top2_head.png") no-repeat;
+}
+.ranking-container .top3-box i {
+    position: absolute;
+    top: -32px;
+    right: -5px;
+    display: block;
+    width: 55px;
+    height: 52px;
+    background: url("../images/top3_head.png") no-repeat;
+}
+
+    /* 排行榜信息 */
+.topInfo{
+    width:570px;
+}
+.topInfo-head{
+    height: 32px;
+    line-height:32px;
+}
+.topInfo-head span.m {font-size: 24px;}
+.topInfo-head span.f {font-size: 18px;}
+.topInfo-head a{
+    color:#280000;
+    vertical-align:middle;
+}
+.topInfo-head a:hover{
+    text-decoration:underline;
+}
+.topInfo-table{
+    margin-top:30px;
+}
+.topInfo-table td{
+    height:45px;
+    vertical-align:middle;
+    font-size:14px;
+    color:#616161;
+}
+.topInfo-table td.m{
+    padding-right: 10px;
+    letter-spacing: 3px;
+}
+.topInfo-table td.user span,.topInfo-table td.user img{
+    vertical-align: middle;
+}
+.topInfo-table td.user img{
+    width: 25px;
+    height: 25px;
+    margin-right:6px;
+    border-radius:50%;
+}
+.topInfo-table .line{
+    width:292px;
+    border-top:1px dashed #b0b0b0;
+}
+.topInfo-table span.f{
+    color:#fda265;
+    margin-right:6px;
+}
+/* END 排行榜 */
+
+@media screen and (min-width: 1920px) {
+    .latest-wrap {
+        max-width: 1920px;
+        margin: 85px auto 0;
+        overflow: hidden;
+    }
+}
+@media screen and (max-width: 1680px) {
+    .latest-slick a {
+        width: 90%;
+    }
+}
+@media screen and (max-width: 1366px) {
+    .latest-slick a {
+        width: 85%;
+    }
+    .latest-slick-img {
+        height: 85%;
+    }
+    /* 直播课程 */
+    .live-container {
+        width: 100% !important;
+    }
+    .live-container .img {
+        float: none;
+        width: 710px;
+        margin: 0 auto;
+    }
+    .live-container-content {
+        float: none;
+        width: 710px !important;
+        margin: 30px auto !important;
+    }
+    .live-container-content .livetime,
+    .live-container-content .time,
+    .live-container-content a {
+        margin-top: 10px !important;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .ranking-container {
+        width: auto;
+        padding: 0 20px;
+    }
+    .topInfo {
+        width: 55%;
+        min-width: 510px;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .ranking-container .top,
+    .topInfo {
+        float: none;
+        margin: auto;
+    }
+    .ranking-container .top {
+        margin: 80px auto 30px;
+    }
+    .topInfo {
+        margin-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 740px) {
+    .ls-container-avatar{
+        display: none;
+    }
+}
+@media screen and (max-width: 735px) {
+    .live-container .img,
+    .live-container .img img {
+        width: 100% !important;
+    }
+    .live-container-content {
+        width: calc(100vw - 40px) !important;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .topInfo {
+        width: auto;
+        min-width: 0;
+    }
+    .ranking-container {
+        padding: 0;
+    }
+    .topInfo-table .line {
+        width: 100px;
+    }
+}
+@media screen and (max-width: 470px) {
+    .live-container .img .cover div {
+        width: 100%;
+        padding: 10px !important;
+    }
+    .live-container .img .cover div span:nth-child(odd) {
+        font-size: 20px !important;
+    }
+    .live-container .img .cover div span:nth-child(even) {
+        vertical-align: initial !important;
+    }
+}

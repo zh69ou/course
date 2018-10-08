@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>14课</title>
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/index.js"></script>
+</head>
+<body>
+    <header>
+        <div class="wrapper">
+            <div class="fl">
+                <div class="logo fl">
+                    <img src="images/logo.png" alt="">
+                </div>
+                <nav class="fl">
+                    <ul class="fl">
+                        <li class="fl on"><a href="#">首页</a></li>
+                        <li class="fl"><a href="#">课程</a></li>
+                        <li class="fl"><a href="#">题库</a></li>
+                        <li class="fl"><a href="#">商城</a></li>
+                    </ul>
+                    <div class="right fr">
+                        <div class="search">
+                            <input type="text" placeholder="输入你要找的内容">
+                            <a href="#">
+                                <img src="images/search.png" alt="">
+                            </a>
+                        </div>
+                        <div class="noticeBox">
+                            <a href="#">
+                                <img src="images/notice.png" alt="">
+                                <span>12</span>
+                            </a>
+                        </div>
+                        <div class="user-wrapper">
+                            <a href="#">
+                                <img src="images/avatar.png" alt="">
+                                <span>张大哈哈</span>
+                            </a>
+                        </div>
+                        <div class="shopcar">
+                            <a href="#">购物车</a>
+                        </div>
+                        <div id="closeNav"></div>
+                    </div>
+                </nav>
+            </div>
+            <div class="nav-btn fr"></div>
+        </div>
+    </header>
+    <section>
+        <div class="slick">
+            <div>
+                <a href="#">
+                    <img src="images/banner.png" alt="">
+                </a>
+            </div>
+            <div>
+                <a href="#">
+                    <img src="images/banner2.jpg" alt="">
+                </a>
+            </div>
+            <div>
+                <a href="#">
+                    <img src="images/banner3.jpg" alt="">
+                </a>
+            </div>
+        </div>
+        <!-- 直播课程 -->
+        <div class="live">
+            <div class="common-title">
+                <h1>直播课程</h1>
+                <p>LIVE COURSES</p>
+            </div>
+            <div class="live-container cf">
+                <a href="#" class="img fl fs0">
+                    <img src="images/video.png" alt="">
+                    <div class="cover">
+                        <h3>距离下一次直播开始还有</h3>
+                        <div>
+                            <span id="countdownDay">00</span>
+                            <span>天</span>
+                            <span id="countdownHours">00</span>
+                            <span>时</span>
+                            <span id="countdownMinutes">00</span>
+                            <span>分</span>
+                            <span id="countdownSeconds">00</span>
+                            <span>秒</span>
+                        </div>
+                    </div>
+                </a>
+                <div class="live-container-content fl">
+                    <h1>网红名师“Dr.吴”在线直播</h1>
+                    <h2>——相遇问题魔力讲</h2>
+                    <p class="desc">本节课主要学习如何运用相遇知识解决问题，从而提高解决实际问题的能力。</p>
+                    <p class="livetime">今日直播时间：</p>
+                    <p class="time">2019/1/1 18:00</p>
+                    <a href="#"></a>
+                </div>
+            </div>
+        </div>
+        <!-- 周三课堂-->
+        <div class="latest">
+            <div class="latest-wrap">
+                <div class="common-title">
+                    <h1>周三课堂</h1>
+                    <p>LATEST COURSES</p>
+                </div>
+                <div class="latest-slick">
+                    <div>
+                        <a href="#">
+                            <div>
+                                <div class="latest-slick-img fs0">
+                                    <img src="images/latest-list1.png" alt="">
+                                </div>
+                                <div class="latest-slick-container">
+                                    <h3 class="line1">【专题】趣味几何</h3>
+                                    <span>￥</span>
+                                    <span class="ls-container-price">29</span>
+                                    <div class="ls-container-avatar">
+                                        <img src="images/latest-avatar.png" alt="">
+                                        <p class="fs0"><span>五年级</span><span>兰某某</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <div>
+                                <div class="latest-slick-img fs0">
+                                    <img src="images/latest-list2.png" alt="">
+                                </div>
+                                <div class="latest-slick-container">
+                                    <h3 class="line1">【专题】趣味几何</h3>
+                                    <span>￥</span>
+                                    <span class="ls-container-price">29</span>
+                                    <div class="ls-container-avatar">
+                                        <img src="images/latest-avatar.png" alt="">
+                                        <p class="fs0"><span>五年级</span><span>兰某某</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <div>
+                                <div class="latest-slick-img fs0">
+                                    <img src="images/latest-list3.png" alt="">
+                                </div>
+                                <div class="latest-slick-container">
+                                    <h3 class="line1">【专题】趣味几何</h3>
+                                    <span>￥</span>
+                                    <span class="ls-container-price">29</span>
+                                    <div class="ls-container-avatar">
+                                        <img src="images/latest-avatar.png" alt="">
+                                        <p class="fs0"><span>五年级</span><span>兰某某</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <div>
+                                <div class="latest-slick-img fs0">
+                                    <img src="images/latest-list1.png" alt="">
+                                </div>
+                                <div class="latest-slick-container">
+                                    <h3 class="line1">【专题】趣味几何</h3>
+                                    <span>￥</span>
+                                    <span class="ls-container-price">29</span>
+                                    <div class="ls-container-avatar">
+                                        <img src="images/latest-avatar.png" alt="">
+                                        <p class="fs0"><span>五年级</span><span>兰某某</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <div>
+                                <div class="latest-slick-img fs0">
+                                    <img src="images/latest-list2.png" alt="">
+                                </div>
+                                <div class="latest-slick-container">
+                                    <h3 class="line1">【专题】趣味几何</h3>
+                                    <span>￥</span>
+                                    <span class="ls-container-price">29</span>
+                                    <div class="ls-container-avatar">
+                                        <img src="images/latest-avatar.png" alt="">
+                                        <p class="fs0"><span>五年级</span><span>兰某某</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <div>
+                                <div class="latest-slick-img fs0">
+                                    <img src="images/latest-list3.png" alt="">
+                                </div>
+                                <div class="latest-slick-container">
+                                    <h3 class="line1">【专题】趣味几何</h3>
+                                    <span>￥</span>
+                                    <span class="ls-container-price">29</span>
+                                    <div class="ls-container-avatar">
+                                        <img src="images/latest-avatar.png" alt="">
+                                        <p class="fs0"><span>五年级</span><span>兰某某</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <a class="latest-more" href="#">全部课程 ></a>
+            </div>
+        </div>
+        <!-- 排行榜 -->
+        <div class="ranking">
+            <div class="common-title">
+                <h1>排行榜</h1>
+                <p>RANKING LIST</p>
+            </div>
+            <div class="ranking-container cf">
+                <div class="top fl">
+                    <img src="images/top.png" alt="">
+                    <div class="top1-box">
+                        <div class="top1">
+                            <img src="images/top1.png" alt="">
+                            <p class="line1">阿西吧</p>
+                        </div>
+                        <i></i>
+                    </div>
+                    <div class="top2-box">
+                        <div class="top2">
+                            <img src="images/top2.png" alt="">
+                            <p class="line1">阿西吧</p>
+                        </div>
+                        <i></i>
+                    </div>
+                    <div class="top3-box">
+                        <div class="top3">
+                            <img src="images/top3.png" alt="">
+                            <p class="line1">阿西吧</p>
+                        </div>
+                        <i></i>
+                    </div>
+                </div>
+                <div class="topInfo fr">
+                    <div class="topInfo-head cf">
+                        <div class="fl">
+                            <span>我的当前排名：第</span>
+                            <span class="m">24</span>
+                            <span>名</span>
+                            <span class="f">88分</span>
+                        </div>
+                        <a class="fr" href="#">查看排行榜 ></a>
+                    </div>
+                    <table class="topInfo-table" cellspacing="0" cellpadding="0" width="100%">
+                        <tr>
+                            <td class="m">第4名</td>
+                            <td class="user">
+                                <img src="images/ranking-avatar.png" alt="">
+                                <span>奇偶飞侠</span>
+                            </td>
+                            <td>
+                                <div class="line"></div>
+                            </td>
+                            <td>
+                                <span class="f">95</span>分
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="m">第5名</td>
+                            <td class="user">
+                                <img src="images/ranking-avatar.png" alt="">
+                                <span>憨豆先生</span>
+                            </td>
+                            <td>
+                                <div class="line"></div>
+                            </td>
+                            <td>
+                                <span class="f">93</span>分
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="m">第6名</td>
+                            <td class="user">
+                                <img src="images/ranking-avatar.png" alt="">
+                                <span>LEMON TREE</span>
+                            </td>
+                            <td>
+                                <div class="line"></div>
+                            </td>
+                            <td>
+                                <span class="f">92</span>分
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="m">第7名</td>
+                            <td class="user">
+                                <img src="images/ranking-avatar.png" alt="">
+                                <span>憨豆先生</span>
+                            </td>
+                            <td>
+                                <div class="line"></div>
+                            </td>
+                            <td>
+                                <span class="f">92</span>分
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="m">第8名</td>
+                            <td class="user">
+                                <img src="images/ranking-avatar.png" alt="">
+                                <span>憨豆先生</span>
+                            </td>
+                            <td>
+                                <div class="line"></div>
+                            </td>
+                            <td>
+                                <span class="f">90</span>分
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="m">第9名</td>
+                            <td class="user">
+                                <img src="images/ranking-avatar.png" alt="">
+                                <span>憨豆先生</span>
+                            </td>
+                            <td>
+                                <div class="line"></div>
+                            </td>
+                            <td>
+                                <span class="f">90</span>分
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-wrap">
+            <div class="cf">
+                <div class="footer-nav fl">
+                    <dl class="fl">
+                        <dt>常见问题</dt>
+                        <dd><a href="#">注册登录</a></dd>
+                        <dd><a href="#">账号/密码</a></dd>
+                        <dd><a href="#">充值/售后</a></dd>
+                        <dd><a href="#">题库测试</a></dd>
+                    </dl>
+                    <dl class="fl">
+                        <dt>关于14ke</dt>
+                        <dd><a href="#">关于我们</a></dd>
+                        <dd><a href="#">加入我们</a></dd>
+                        <dd><a href="#">Q群联盟</a></dd>
+                    </dl>
+                    <dl class="fl">
+                        <dt>产品服务</dt>
+                        <dd><a href="#">官方博客</a></dd>
+                        <dd><a href="#">帮助中心</a></dd>
+                    </dl>
+                </div>
+                <div class="footer-sev fr">
+                    <h3>客服咨询</h3>
+                    <ul>
+                        <li>
+                            <img src="images/footer-tel.png" alt="">
+                            <span>400-9987011（9:30-18:30）</span>
+                        </li>
+                        <li>
+                            <img src="images/footer-mail.png" alt="">
+                            <span>14keeducation@163.com</span>
+                        </li>
+                    </ul>
+                    <a class="joinQQGroup" href="#">
+                        <img src="images/qq.png" alt="">
+                        <span>点击进入Q群联盟</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-wrap">
+            <div class="footer-wrap cf">
+                <div class="copyright-left fl fs0">
+                    <img src="images/weibo.png" alt="">
+                    <img src="images/wechat.png" alt="">
+                    <a href="#">注册声明</a>
+                    <a href="#">版权声明</a>
+                    <a href="#">售后服务</a>
+                </div>
+                <div class="copyright-right fr">
+                    <span>办学许可证：111010873931661,</span>
+                    <span>电信与信息服务业务经营许可证：</span>
+                    <a href="http://www.miibeian.gov.cn/" target="_blank">渝ICP证150109号 渝ICP备140342</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
