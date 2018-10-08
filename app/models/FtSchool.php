@@ -82,6 +82,7 @@ class FtSchool extends \Phalcon\Mvc\Model
     {
         $this->setSchema("week");
         $this->setSource("ft_school");
+        $this->hasMany('id','FtMemberStudent','school_id');
     }
 
     /**

@@ -31,6 +31,13 @@ $router->add('/api/rank',['controller'=>'api','action'=>'rank'],['GET','POST'])-
 # 签到
 $router->add('/api/signin',['controller'=>'api','action'=>'signin'],['GET','POST'])->setName('signin');
 
+# 用户信息
+$router->add('/api/userinfo',['controller'=>'api','action'=>'userinfo'],['GET','POST'])->setName('userinfo');
+$router->add('/api/userinfo/edit',['controller'=>'api','action'=>'useredit'],['GET','POST'])->setName('useredit');
+
+# 我的老师
+$router->add('/api/myteacher',['controller'=>'api','action'=>'myteacher'],['GET','POST'])->setName('myteacher');
+
 #注册
 $router->add('/regin',['controller'=>'index','action'=>'regin'],['GET','POST'])->setName('regin');
 $router->add('/logout',['controller'=>'index','action'=>'logout'],['GET','POST'])->setName('logout');
@@ -40,6 +47,7 @@ $router->add('/course','Course::list',['GET'])->setName('courselist');
 
 # 临时统计
 $router->add('/statistics','Index::statistics',['GET']);
+$router->add('/looklist','Index::looklist',['GET']);
 
 # 没有权限
 $router->add('/nopower','Index::nopower',['GET']);

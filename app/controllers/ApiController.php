@@ -246,7 +246,7 @@ class ApiController extends ControllerBase
 		return $this->ReturnJson($error,$rank);
 	}
 
-	#签到
+	# 签到
 	public function signinAction()
 	{
 		$error = $this->config->error['dataerror'];
@@ -275,5 +275,82 @@ class ApiController extends ControllerBase
 			$error = $this->config->error['isexist'];
 		}
 		return $this->ReturnJson($error);
+	}
+
+	# 获取个人信息
+	public function userinfoAction()
+	{
+		$error = $this->config->error['success'];
+		$uid = !empty($this->safety->ReturnUser()) ? $this->safety->ReturnUser()->uid : '';
+		$info = GetOne('FtMemberStudent',['uid="'.$uid.'"']);
+		$rank = GetRanked($this->db,$uid);
+		// var_dump($rank['user']['ranking']);exit;
+		$student = BuildInfo([
+			'id'=>'uid',
+			'name'=>'name',
+			'img'=>'avatar',
+			'phone'=>'phone',
+			'birth'=>'birth',
+			'sex'=>'sex',
+			'schoolid'=>'school_id',
+			'schoolname'=>'FtSchool->name',
+			'term'=>'term',
+			'pubschool'=>'public_school',
+			'week'=>'week',
+			'times'=>'study_time',
+			'14val'=>'experience',
+			'grade'=>'clazz',
+			'credit'=>'score',
+			'viptime'=>'vip_time'
+		],$info);
+		$student['ranking'] = isset($rank['user']['ranking'])?$rank['user']['ranking']:'';
+		return $this->ReturnJson($error,$student);
+	}
+
+	# 编辑个人信息
+	public function usereditAction()
+	{
+		$error = $this->config->error['dataerror'];
+		$uid = !empty($this->safety->ReturnUser()) ? $this->safety->ReturnUser()->uid : '';
+		$user = GetOne('FtMemberStudent',['uid="'.$uid.'"']);
+		if(!empty(count($user)))
+		{
+			$error = $this->config->error['success'];
+			$user->name = $this->request->getPost('name');
+			$user->phone = $this->request->getPost('phone');
+			$user->birth = $this->request->getPost('birth');
+			$user->sex = $this->request->getPost('sex');
+			$user->clazz = $this->request->getPost('grade');
+			$user->school_id = $this->request->getPost('schoolid');
+			$user->term = $this->request->getPost('term');
+			$user->public_school = $this->request->getPost('pubschool');
+			$user->week = $this->request->getPost('week');
+			$user->study_time = $this->request->getPost('times');
+			$arr['judge'] = 1;
+			if($user->save())
+			{
+				$arr['judge'] = 0;
+			}
+		}
+		return $this->ReturnJson($error,$arr);
+	}
+
+	# 我的老师
+	public function myteacherAction()
+	{
+		$error = $this->config->error['success'];
+		$page = $this->request->getPost('page')?:1;
+		$size = $this->request->getPost('size')?:16;
+		$uid = !empty($this->safety->ReturnUser()) ? $this->safety->ReturnUser()->uid : '';
+		$list = GetList('FtRelations',['sid="'.$uid.'"'],$page,$size);
+		$list = BuildList([
+			'id'=>'id',
+			'name'=>'FtMemberTeacher->name',
+			'img'=>'FtMemberTeacher->avatar',
+			'infodesc'=>'FtMemberTeacher->infodesc',
+			'teachdesc'=>'FtMemberTeacher->teachdesc'
+		],$list);
+		$arr['list'] = $list;
+		return $this->ReturnJson($error,$arr);
 	}
 }

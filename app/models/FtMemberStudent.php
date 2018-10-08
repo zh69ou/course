@@ -215,6 +215,7 @@ class FtMemberStudent extends \Phalcon\Mvc\Model
         $this->setSchema("week");
         $this->setSource("ft_member_student");
         $this->belongsTo('clazz','FtGrade','id');
+        $this->belongsTo('school_id','FtSchool','id');
         $this->hasMany('uid','FtTeacherComment','sid');
         $this->hasMany('uid','FtClassComment','uid');
         $this->hasMany('uid','FtTestPaperPushlog','sid');
