@@ -19,8 +19,8 @@ class IndexController extends ControllerBase
     $uid = !empty($this->safety->ReturnUser()) ? $this->safety->ReturnUser()->uid : '';
     $this->view->ranked = GetRanked($this->db,$uid);
     // echo '<pre>';var_dump($this->view->ranked);
-    echo 4;
-    exit;
+    // echo 4;
+    // exit;
   }
 
   public function loginAction()
@@ -136,6 +136,36 @@ class IndexController extends ControllerBase
     $this->view->classshow3user = $classshow3user;
     // echo '<pre>';
     // print_r($classshow3user);exit;
+  }
+
+  public function looklistAction()
+  {
+    $arr = array();
+    $sql = 'SELECT uid,name,phone,clazz FROM ft_member_student WHERE school_id="18"';
+    $list = $this->db->fetchAll($sql);
+    foreach ($list as $k => $v) {
+      $arr[$v['uid']] = $v;
+      $arr[$v['uid']]['num'] = 0;
+    }
+
+    $sql = 'SELECT count(re.cid) as num,re.name,re.phone,re.uid,re.clazz  FROM (SELECT ll.cid,ms.name,ms.phone,ms.uid,ms.clazz FROM ft_look_log AS ll LEFT JOIN ft_member_student AS ms ON ms.uid = ll.uid WHERE ms.school_id="18" AND ll.entime-ll.betime>60 AND ll.cid>186 AND ll.cid!=191 AND ll.cid!=192 GROUP BY ms.uid,ll.cid) AS re GROUP BY re.uid';
+    $list = $this->db->fetchAll($sql);
+    foreach ($list as $k => $v) {
+      $arr[$v['uid']] = $v;
+    }
+    $this->view->list = $arr;
+    $sql = 'SELECT count(uid) as num FROM ft_member_student WHERE school_id="18"';
+    $this->view->allnum = $this->db->fetchOne($sql);
+    $sql = 'SELECT count(uid) as num FROM ft_member_student WHERE school_id="18" AND clazz="2"';
+    $this->view->twonum = $this->db->fetchOne($sql);
+    $sql = 'SELECT count(uid) as num FROM ft_member_student WHERE school_id="18" AND clazz="3"';
+    $this->view->threenum = $this->db->fetchOne($sql);
+    $sql = 'SELECT count(uid) as num FROM ft_member_student WHERE school_id="18" AND clazz="4"';
+    $this->view->fournum = $this->db->fetchOne($sql);
+    $sql = 'SELECT count(uid) as num FROM ft_member_student WHERE school_id="18" AND clazz="5"';
+    $this->view->fivenum = $this->db->fetchOne($sql);
+    $sql = 'SELECT count(uid) as num FROM ft_member_student WHERE school_id="18" AND clazz="6"';
+    $this->view->sixnum = $this->db->fetchOne($sql);
   }
 
   public function nopowerAction()

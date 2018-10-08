@@ -1,0 +1,17 @@
+<table>
+<tr>
+	<th>姓名</th>
+	<th>手机</th>
+	<th>观看课程次数</th>
+	<th>年级</th>
+</tr>
+<?php foreach ($list as $k => $v) {  ?>
+	<tr><td><?php echo $v['name'] ?><!-- (<?php echo $v['uid'] ?>) --></td><td><?php echo $v['phone'] ?></td><td><?php echo $v['num'] ?></td><td><?php echo $v['clazz'] ?></td></tr>
+<?php } ?>
+<tr><td>二年级总人数</td> <td><?php echo $twonum['num'] ?></td> <td></td><td></td></tr>
+<tr><td>三年级总人数</td> <td><?php echo $threenum['num'] ?></td> <td></td><td></td></tr>
+<tr><td>四年级总人数</td> <td><?php echo $fournum['num'] ?></td> <td></td><td></td></tr>
+<tr><td>五年级总人数</td> <td><?php echo $fivenum['num'] ?></td> <td></td><td></td></tr>
+<tr><td>六年级总人数</td> <td><?php echo $sixnum['num'] ?></td> <td></td><td></td></tr>
+<tr><td>校区总人数</td> <td><?php echo $allnum['num'] ?></td> <td></td><td></td></tr>
+</table>
